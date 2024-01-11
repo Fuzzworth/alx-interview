@@ -18,7 +18,7 @@ def canUnlockAll(boxes):
         print(visitedBoxes)
         while not terminateLoop:
             for key in setOfKeys.copy():
-                if key not in visitedBoxes.copy() and key < numOfBoxes:
+                if key not in visitedBoxes.copy() and key < numOfBoxes and key != 0:
                     setOfKeys.update(boxes[key])
                     visitedBoxes.add(key)
                     continue
