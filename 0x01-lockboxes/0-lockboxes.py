@@ -9,12 +9,12 @@ def canUnlockAll(boxes):
     Function Docs
     '''
     if (boxes):
-        newBoxVisited = False
         numOfBoxes = len(boxes)
         setOfKeys = {0}
         setOfKeys.update(boxes[0])
         visitedBoxes = {0}
         while True:
+            newBoxVisited = False
             keys = setOfKeys.copy()
             print(f"Set of keys copy = {keys}")
             for key in keys:
