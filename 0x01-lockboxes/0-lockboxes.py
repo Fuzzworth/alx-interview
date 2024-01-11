@@ -13,7 +13,6 @@ def canUnlockAll(boxes):
         setOfKeys = {0}
         for box in boxes:
             for key in box:
-                print(key)
                 setOfKeys.add(key)
         print(setOfKeys)
         for n in range(numOfBoxes):
