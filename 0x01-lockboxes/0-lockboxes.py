@@ -14,6 +14,7 @@ def canUnlockAll(boxes):
         for box in boxes:
             for key in box:
                 result = setOfKeys.add(key)
+        print(setOfKeys)
         for n in range(numOfBoxes):
             if n not in setOfKeys:
                 return False
