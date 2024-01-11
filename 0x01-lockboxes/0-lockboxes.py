@@ -10,6 +10,7 @@ def canUnlockAll(boxes):
     '''
     if (boxes):
         terminateLoop = False
+        newBoxVisited = False
         numOfBoxes = len(boxes)
         setOfKeys = {0}
         setOfKeys.update(boxes[0])
@@ -25,7 +26,8 @@ def canUnlockAll(boxes):
                     visitedBoxes.add(key)
                     print(f"set of Keys updated = {setOfKeys}")
                     print(f"visitedBoxes updated = {visitedBoxes}")
-                    continue
+                    newBoxVisited = True
+            if not newBoxVisited:
                 terminateLoop = True
         for n in range(numOfBoxes):
             if n not in setOfKeys:
