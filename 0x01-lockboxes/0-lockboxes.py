@@ -9,13 +9,12 @@ def canUnlockAll(boxes):
     Function Docs
     '''
     if (boxes):
-        terminateLoop = False
         newBoxVisited = False
         numOfBoxes = len(boxes)
         setOfKeys = {0}
         setOfKeys.update(boxes[0])
         visitedBoxes = {0}
-        while not terminateLoop:
+        while True:
             keys = setOfKeys.copy()
             print(f"Set of keys copy = {keys}")
             for key in keys:
@@ -28,7 +27,7 @@ def canUnlockAll(boxes):
                     print(f"visitedBoxes updated = {visitedBoxes}")
                     newBoxVisited = True
             if not newBoxVisited:
-                terminateLoop = True
+                break
         for n in range(numOfBoxes):
             if n not in setOfKeys:
                 return False
