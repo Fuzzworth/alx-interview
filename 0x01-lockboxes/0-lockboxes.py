@@ -23,6 +23,8 @@ def canUnlockAll(boxes):
                     visitedBoxes.add(key)
                     print(setOfKeys)
                     print(visitedBoxes)
+                    continue
+            terminateLoop = True
         for n in range(numOfBoxes):
             if n not in setOfKeys:
                 return False
