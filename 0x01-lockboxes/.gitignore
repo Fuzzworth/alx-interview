@@ -3,3 +3,5 @@
 # Ignore compiled files or local configuration specific to your development environment
 .venv/
 *.pyc
+main_0.py
+*__pycache__*
