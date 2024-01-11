@@ -20,3 +20,4 @@ def canUnlockAll(boxes):
             if n not in setOfKeys:
                 return False
         return True
+    return False
