@@ -26,7 +26,7 @@ def canUnlockAll(boxes):
                     print(f"set of Keys updated = {setOfKeys}")
                     print(f"visitedBoxes updated = {visitedBoxes}")
                     continue
-            terminateLoop = True
+                terminateLoop = True
         for n in range(numOfBoxes):
             if n not in setOfKeys:
                 return False
