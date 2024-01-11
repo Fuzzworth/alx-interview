@@ -9,14 +9,20 @@ def canUnlockAll(boxes):
     Function Docs
     '''
     if (boxes):
+        terminateLoop = False
         numOfBoxes = len(boxes)
-        setOfKeys = {0}
-        for box in boxes:
-            for key in box:
-                setOfKeys.add(key)
-        print(setOfKeys)
-        for n in range(numOfBoxes):
-            if n not in setOfKeys:
-                return False
-        return True
+        setOfKeys = set(boxes[0])
+        visitedBoxes = {0}
+        while not terminateLoop:
+            for key in setOfKeys:
+                if key not in visitedBoxes &&key < numOfBoxes:
+                    setOfKeys.update(boxes[key])
+                    visitedBoxes.add(key)
+                    continue
+            terminateLoop = True
+            print(setOfKeys)
+            for n in range(numOfBoxes):
+                if n not in setOfKeys:
+                    return False
+            return True
     return False
