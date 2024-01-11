@@ -11,7 +11,8 @@ def canUnlockAll(boxes):
     if (boxes):
         terminateLoop = False
         numOfBoxes = len(boxes)
-        setOfKeys = set(boxes[0])
+        setOfKeys = {0}
+        setOfKeys.update(boxes[0])
         visitedBoxes = {0}
         while not terminateLoop:
             for key in setOfKeys:
