@@ -18,7 +18,9 @@ def canUnlockAll(boxes):
             keys = setOfKeys.copy()
             print(f"Set of keys copy = {keys}")
             for key in keys:
+                print(f"Key in loop = {key}")
                 if key not in visitedBoxes.copy() and key < numOfBoxes:
+                    print(f"box opened = {key}")
                     setOfKeys.update(boxes[key])
                     visitedBoxes.add(key)
                     print(f"set of Keys updated = {setOfKeys}")
