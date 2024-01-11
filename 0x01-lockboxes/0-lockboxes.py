@@ -23,8 +23,8 @@ def canUnlockAll(boxes):
                     visitedBoxes.add(key)
                     print(setOfKeys)
                     print(visitedBoxes)
-            for n in range(numOfBoxes):
-                if n not in setOfKeys:
-                    return False
-            return True
+        for n in range(numOfBoxes):
+            if n not in setOfKeys:
+                return False
+        return True
     return False
