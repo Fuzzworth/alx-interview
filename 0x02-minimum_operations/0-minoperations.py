@@ -7,18 +7,21 @@ from typing import List
 
 def minOperations(n: int) -> int:
     """
-    Calculate the fewest number of operations needed to result in exactly n 'H' characters in the file.
+    Calculate the fewest number of operations needed to result in exactly
+    n 'H' characters in the file.
 
     Args:
     - n (int): The desired number of 'H' characters.
 
     Returns:
-    - int: The fewest number of operations needed. If n is impossible to achieve, return 0.
+    - int: The fewest number of operations needed. If n is impossible to
+    achieve, return 0.
     """
     if n <= 0:
         return 0
 
-    # Initialize an array to store the minimum operations needed for each position
+    # Initialize an array to store the minimum operations needed for each
+    #position
     min_operations = [float('inf')] * (n + 1)
 
     # Base case: It takes 0 operations to have 1 'H'
