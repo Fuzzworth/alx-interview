@@ -5,7 +5,7 @@ Module Docs
 from typing import List
 
 
-def min_operations_to_get_n_H_characters(n: int) -> int:
+def minOperations(n: int) -> int:
     """
     Calculate the fewest number of operations needed to result in exactly n 'H' characters in the file.
 
