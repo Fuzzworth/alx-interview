@@ -21,7 +21,7 @@ def minOperations(n: int) -> int:
         return 0
 
     # Initialize an array to store the minimum operations needed for each
-    #position
+    # position
     min_operations = [float('inf')] * (n + 1)
 
     # Base case: It takes 0 operations to have 1 'H'
