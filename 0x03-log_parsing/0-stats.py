@@ -16,7 +16,7 @@ def print_summary(total_file_size, status_counts):
     print("File size: {:d}".format(total_file_size))
     for code, count in sorted(status_counts.items()):
         if count != 0:
-            print("{} : {}".format(code, count))
+            print("{}: {}".format(code, count))
 
 
 # Dictionary to store counts of different HTTP status codes
