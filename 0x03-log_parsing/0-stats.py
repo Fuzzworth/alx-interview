@@ -17,7 +17,7 @@ def print_summary(total_file_size: int, status_counts: Dict[str, int]) -> None:
     print("Total File Size: {:d}".format(total_file_size))
     for code, count in sorted(status_counts.items()):
         if count != 0:
-            print("HTTP {} : {}".format(code, count))
+            print("{} : {}".format(code, count))
 
 # Dictionary to store counts of different HTTP status codes
 http_status_counts: Dict[str, int] = {'200': 0, '301': 0, '400': 0, '401': 0,
