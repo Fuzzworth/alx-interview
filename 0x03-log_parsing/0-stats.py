@@ -2,7 +2,7 @@
 '''
 Module Docs
 '''
-import sys
+from sys import stdin
 from typing import Dict
 
 
@@ -31,7 +31,7 @@ line_count: int = 0
 
 try:
     # Iterate over lines from standard input
-    for line in sys.stdin:
+    for line in stdin:
         # Split the line into words
         line_args = line.split()
 
@@ -59,4 +59,3 @@ except KeyboardInterrupt:
 finally:
     # Print final summary
     print_summary(total_file_size, http_status_counts)
-
