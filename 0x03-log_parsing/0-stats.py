@@ -27,6 +27,7 @@ http_status_counts: Dict[str, int] = {'200': 0, '301': 0, '400': 0, '401': 0,
 total_file_size: int = 0
 line_count: int = 0
 
+
 try:
     # Iterate over lines from standard input
     for line in sys.stdin:
