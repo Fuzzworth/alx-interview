@@ -59,3 +59,4 @@ except KeyboardInterrupt:
 finally:
     # Print final summary
     print_summary(total_file_size, http_status_counts)
+
