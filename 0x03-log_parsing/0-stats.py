@@ -14,7 +14,7 @@ def print_summary(total_file_size: int, status_counts: Dict[str, int]) -> None:
     :param status_counts: Dictionary containing counts of different HTTP status
     codes.
     """
-    print("Total File Size: {:d}".format(total_file_size))
+    print("File size: {:d}".format(total_file_size))
     for code, count in sorted(status_counts.items()):
         if count != 0:
             print("{} : {}".format(code, count))
