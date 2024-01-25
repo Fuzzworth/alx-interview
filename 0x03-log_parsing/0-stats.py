@@ -3,10 +3,9 @@
 Module Docs
 '''
 from sys import stdin
-from typing import Dict
 
 
-def print_summary(total_file_size: int, status_counts: Dict[str, int]) -> None:
+def print_summary(total_file_size, status_counts):
     """
     Print the total file size and counts of HTTP status codes.
 
@@ -21,12 +20,12 @@ def print_summary(total_file_size: int, status_counts: Dict[str, int]) -> None:
 
 
 # Dictionary to store counts of different HTTP status codes
-http_status_counts: Dict[str, int] = {'200': 0, '301': 0, '400': 0, '401': 0,
-                                      '403': 0, '404': 0, '405': 0, '500': 0}
+http_status_counts = {'200': 0, '301': 0, '400': 0, '401': 0,
+                      '403': 0, '404': 0, '405': 0, '500': 0}
 
 # Initialize variables
-total_file_size: int = 0
-line_count: int = 0
+total_file_size = 0
+line_count = 0
 
 
 try:
@@ -37,8 +36,8 @@ try:
 
         if len(line_args) > 2:
             # Extract HTTP status code and file size
-            status_code: str = line_args[-2]
-            file_size: int = int(line_args[-1])
+            status_code = line_args[-2]
+            file_size = int(line_args[-1])
 
             # Update counts in the dictionary
             if status_code in http_status_counts:
