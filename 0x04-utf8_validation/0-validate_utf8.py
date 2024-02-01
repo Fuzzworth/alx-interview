@@ -15,13 +15,9 @@ def validUTF8(data):
     Returns:
     - bool: True if data is a valid UTF-8 encoding, else return False.
     """
-
-    # Variable to track the number of expected continuation bytes
     expected_continuations = 0
-
     for byte in data:
         if expected_continuations == 0:
-            # Check if the current byte is a start byte
             if (byte >> 5) == 0b110:
                 expected_continuations = 1
             elif (byte >> 4) == 0b1110:
@@ -31,9 +27,7 @@ def validUTF8(data):
             elif (byte >> 7):
                 return False
         else:
-            # Check if the current byte is a continuation byte
             if (byte >> 6) != 0b10:
                 return False
             expected_continuations -= 1
-
     return expected_continuations == 0
