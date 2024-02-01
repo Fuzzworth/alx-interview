@@ -4,39 +4,40 @@ Module Docs
 """
 from typing import List
 
+START_BYTE_MASK = 0b11100000
+CONTINUATION_BYTE_MASK = 0b11000000
+
 
 def validUTF8(data: List[int]) -> bool:
     """
     Determine if a given data set represents a valid UTF-8 encoding.
 
     Args:
-    - data (list of int): List of integers representing 1-byte data.
+    - data (List[int]): List of integers representing 1-byte data.
     Each integer represents 8 least significant bits.
 
     Returns:
     - bool: True if data is a valid UTF-8 encoding, else return False.
     """
 
-    # Iterate through each byte in the data
-    i = 0
-    while i < len(data):
-        # Count the number of consecutive set bits starting from the
-        # most significant bit
-        num_bytes = 0
-        mask = 1 << 7
-        while mask & data[i]:
-            num_bytes += 1
-            mask >>= 1
+    # Variable to track the number of expected continuation bytes
+    expected_continuations = 0
 
-        # Validate the number of bytes based on the rules for UTF-8 encoding
-        if num_bytes == 1 or num_bytes > 4:
-            return False
-
-        # Check that the following bytes are valid continuations
-        for j in range(1, num_bytes):
-            if i + j >= len(data) or (data[i + j] >> 6) != 0b10:
+    for byte in data:
+        if expected_continuations == 0:
+            # Check if the current byte is a start byte
+            if (byte & START_BYTE_MASK) == 0b110:
+                expected_continuations = 1
+            elif (byte & CONTINUATION_BYTE_MASK) == 0b110:
+                expected_continuations = 2
+            elif (byte & CONTINUATION_BYTE_MASK) == 0b1110:
+                expected_continuations = 3
+            elif (byte >> 7):
                 return False
+        else:
+            # Check if the current byte is a continuation byte
+            if (byte & CONTINUATION_BYTE_MASK) != 0b10:
+                return False
+            expected_continuations -= 1
 
-        i += num_bytes
-
-    return True
+    return expected_continuations == 0
