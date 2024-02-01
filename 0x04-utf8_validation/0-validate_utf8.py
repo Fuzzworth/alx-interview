@@ -20,7 +20,8 @@ def validUTF8(data: List[int]) -> bool:
     # Iterate through each byte in the data
     i = 0
     while i < len(data):
-        # Count the number of consecutive set bits starting from the most significant bit
+        # Count the number of consecutive set bits starting from the 
+        # most significant bit
         num_bytes = 0
         mask = 1 << 7
         while mask & data[i]:
