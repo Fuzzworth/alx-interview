@@ -4,8 +4,8 @@ Module Docs
 """
 from typing import List
 
-START_BYTE_MASK = 0b11100000
-CONTINUATION_BYTE_MASK = 0b11000000
+START_BYTE_MASK = 0b1110
+CONTINUATION_BYTE_MASK = 0b110
 
 
 def validUTF8(data: List[int]) -> bool:
@@ -28,9 +28,9 @@ def validUTF8(data: List[int]) -> bool:
             # Check if the current byte is a start byte
             if (byte & START_BYTE_MASK) == 0b110:
                 expected_continuations = 1
-            elif (byte & CONTINUATION_BYTE_MASK) == 0b110:
-                expected_continuations = 2
             elif (byte & CONTINUATION_BYTE_MASK) == 0b1110:
+                expected_continuations = 2
+            elif (byte & CONTINUATION_BYTE_MASK) == 0b11110:
                 expected_continuations = 3
             elif (byte >> 7):
                 return False
