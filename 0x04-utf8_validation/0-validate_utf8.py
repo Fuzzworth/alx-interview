@@ -4,9 +4,6 @@ Module Docs
 """
 from typing import List
 
-START_BYTE_MASK = 0b1110
-CONTINUATION_BYTE_MASK = 0b110
-
 
 def validUTF8(data: List[int]) -> bool:
     """
@@ -26,17 +23,17 @@ def validUTF8(data: List[int]) -> bool:
     for byte in data:
         if expected_continuations == 0:
             # Check if the current byte is a start byte
-            if (byte & START_BYTE_MASK) == 0b110:
+            if (byte >> 5) == 0b110:
                 expected_continuations = 1
-            elif (byte & CONTINUATION_BYTE_MASK) == 0b1110:
+            elif (byte >> 4) == 0b1110:
                 expected_continuations = 2
-            elif (byte & CONTINUATION_BYTE_MASK) == 0b11110:
+            elif (byte >> 3) == 0b11110:
                 expected_continuations = 3
             elif (byte >> 7):
                 return False
         else:
             # Check if the current byte is a continuation byte
-            if (byte & CONTINUATION_BYTE_MASK) != 0b10:
+            if (byte >> 6) != 0b10:
                 return False
             expected_continuations -= 1
 
